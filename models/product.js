@@ -1,27 +1,27 @@
 import mongoose from "mongoose";
 
 export const productSchema = mongoose.Schema({
-    productName:{
+    name:{
         type:String,
         trim:true,
         required:true,
     },
-    productTitle:{
+    title:{
         type:String,
         trim:true,
         required:true,
         maxlength:40
     },
-    productDescription:{
+    description:{
         type:String,
         required:true,
         maxlength:40
     },
-    productPrice:{
+    price:{
         type:Number,
         required:true,
     },
-    productImage:{
+    image:{
         type:String,
         required:true
     },
@@ -29,7 +29,11 @@ export const productSchema = mongoose.Schema({
         type:Date,
         default:Date.now()
     },
-    details:{
-        type:[String]
-    }
+    details:[{
+        type:String
+    }]
 });
+
+const productModel = mongoose.Model('productHack',productSchema);
+
+export default productModel;

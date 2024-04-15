@@ -34,10 +34,41 @@ export const userSchema = mongoose.Schema({
         type:String,
         default:"https://t4.ftcdn.net/jpg/01/17/00/39/360_F_117003938_TrPAYiOgFFLnIwKsjUjtqoe4W2RDzytI.jpg"
     },
+    currCart:{
+        type:Number,
+        default:true
+    },
     cart:[{
-        type:mongoose.Schema.Types.ObjectId,
-        rel:'productItem'
-    }]
+        product:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'product'
+        },
+        quantity:{
+            type:Number,
+            default:1
+        },
+        status:{
+            type:String, // success , pending , completed
+        }
+    }],
+    prevOrder:[{
+        product:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'product'
+        },
+        quantity:{
+            type:Number,
+            default:0
+        },
+        total:{
+            type:Number,
+            default:0
+        }
+    }],
+    totalDonation:{
+        type:Number,
+        default:true
+    }
 })
 
 const userModel = mongoose.model('userHack',userSchema);
