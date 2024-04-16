@@ -1,4 +1,5 @@
-import userModel from "../models/userModel";
+import userModel from "../models/userModel.js";
+import productModel from "../models/product.js";
 
 export const addToCart = async (req, res) => {
     try {
@@ -6,7 +7,7 @@ export const addToCart = async (req, res) => {
         const user = await userModel.findById(req.body.userId);
         const findItem = await user.cart.find(item => item.product.equals(productId));
         if (findItem) {
-            findItem.quantity = +1;
+            findItem.quantity += 1;
         } else {
             user.cart.push({ product: productId, quantity: 1, status: 'pending' });
         }
@@ -19,8 +20,8 @@ export const addToCart = async (req, res) => {
             message: "Item Added to the cart"
         })
     } catch (error) {
-        console.log("Error while Adding item to cart");
-        return res.ststus(400).json({
+        console.log("Error while Adding item to cart",error);
+        return res.status(400).json({
             message: "Error while adding item to the Cart"
         })
     }
@@ -44,23 +45,6 @@ export const removeFromCart = async(req,res)=>{
         console.log("Error while Removing item from the Cart");
         return res.status(400).json({
             message:"Error while Removing item from the Cart"
-        })
-    }
-}
-
-export const addQuantity = async (req,res)=>{
-    try{
-        const user = await userModel.findById(req.body.userId);
-        const findItem = await user.cart.find(item=>item.product.equals(req.params.productId));
-        findItem.quantity++;
-        await user.save();
-        return res.status(200).json({
-            message:"Quantity is Refreshed"
-        })
-    } catch(error){
-        console.log("Error while adding quantity");
-        return res.status(400).json({
-            message:"Error while adding quantity"
         })
     }
 }

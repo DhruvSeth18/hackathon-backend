@@ -68,6 +68,7 @@ export const loginUser = async (req,res)=>{
         }
         const jsonToken = await jwt.sign(userWithoutPassword,process.env.Secret_key,{expiresIn:'25d'});
         return res.status(200).json({
+            id:findUser._id,
             username:findUser.username,
             token:`Bearer ${jsonToken}`,
             email:findUser.email,
@@ -79,6 +80,41 @@ export const loginUser = async (req,res)=>{
         console.log("There is an error while loggin the user");
         return res.status(400).json({
             message:"Error while Logging the User"
+        })
+    }
+}
+
+export const allUserDetails = async (req,res)=>{
+    try{
+        const user = await userModel.findById(req.params.userId)
+        .populate('cart.product');
+        res.status(200).json({
+            message:"success",
+            user:user
+        })
+    } catch(error){
+        console.log("Error while showing all the details",error);
+        res.status(400).json({
+            message:"Error while showing the cart"
+        })
+    }
+}
+
+export const deleteUser = async (req,res)=>{
+    try{
+        const deleteUser = await userModel.findByIdAndDelete(req.params.userId);
+        if(!deleteUser){
+            return res.status(401).json({
+                message:"No user with this id exist"
+            })
+        }
+        res.status(200).json({
+            message:"user is Deleted"
+        })
+    } catch(error){
+        console.log("Error while Deleting the user");
+        return res.status(400).json({
+            message:"Error while Deleting the user"
         })
     }
 }

@@ -4,6 +4,9 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import connectDB from './connect/connection.js';
 import userRoutes from './routes/userRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+import shoppingRoutes from './routes/shopRoute.js';
+
 const app = express();
 dotenv.config();
 
@@ -12,6 +15,8 @@ app.use(bodyParser.json({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/',userRoutes);
+app.use('/',productRoutes);
+app.use('/',shoppingRoutes);
 
 const username = process.env.DB_username;
 const password = process.env.DB_password;

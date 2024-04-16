@@ -41,7 +41,7 @@ export const userSchema = mongoose.Schema({
     cart:[{
         product:{
             type:mongoose.Schema.Types.ObjectId,
-            ref:'product'
+            ref:'producthack'
         },
         quantity:{
             type:Number,
@@ -54,7 +54,7 @@ export const userSchema = mongoose.Schema({
     prevOrder:[{
         product:{
             type:mongoose.Schema.Types.ObjectId,
-            ref:'product'
+            ref:'producthack'
         },
         quantity:{
             type:Number,
