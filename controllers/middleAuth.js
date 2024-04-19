@@ -16,10 +16,11 @@ const middlewareAuth = async (req, res, next) => {
         
         // Verification token
         const ver = await promisify(jwt.verify)(token, process.env.secret_key);
+        req.userId = ver._id;
         if (ver) {
-            next();
+            return next();
         } else{
-            res.status(401).json({
+            return res.status(401).json({
                 status:'fail',
                 message:'You Are not signed In Really'
             })
@@ -30,6 +31,37 @@ const middlewareAuth = async (req, res, next) => {
             message:'You Are not signed In'
         })
     }
+}
 
+export const checkUserWithParams = (req,res,next)=>{
+    try{
+        if(req.params.userId===req.userId){
+            return next();
+        }
+        return res.status(401).json({
+            message:"User is not Authenticate"
+        })
+    } catch(error){
+        return res.status(401).json({
+            status:'fail',
+            message:'You Are not signed In'
+        })
+    }
+}
+
+export const checkUserWithBody = (req,res,next)=>{
+    try{
+        if(req.body.userId===req.userId){
+            return next();
+        }
+        return res.status(401).json({
+            message:"User is not Authenticate"
+        })
+    } catch(error){
+        return res.status(401).json({
+            status:'fail',
+            message:'You Are not signed In'
+        })
+    }
 }
 export default middlewareAuth;

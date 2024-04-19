@@ -1,10 +1,11 @@
 import express from "express";
 import {addToCart,removeFromCart} from '../controllers/shopController.js';
-import middlewareAuth from "../controllers/middleAuth.js";
+import middlewareAuth,{checkUserWithBody} from "../controllers/middleAuth.js";
 const shoppingRoutes = express.Router();
 
 shoppingRoutes.route('/user/cart/:productId')
-.post(middlewareAuth,addToCart)
-.delete(middlewareAuth,removeFromCart)
+.put(middlewareAuth,checkUserWithBody,addToCart)
+.post(middlewareAuth,checkUserWithBody,addToCart)
+.delete(middlewareAuth,checkUserWithBody,removeFromCart)
 
 export default shoppingRoutes;

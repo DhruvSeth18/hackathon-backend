@@ -34,6 +34,6 @@ export const productSchema = mongoose.Schema({
     }]
 });
 
-const productModel = mongoose.model('producthack',productSchema);
+const productModel = mongoose.model('producthacks',productSchema);
 
 export default productModel;

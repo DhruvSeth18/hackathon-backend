@@ -88,7 +88,7 @@ export const allUserDetails = async (req,res)=>{
     try{
         const user = await userModel.findById(req.params.userId)
         .populate('cart.product');
-        res.status(200).json({
+        return res.status(200).json({
             message:"success",
             user:user
         })
@@ -104,17 +104,37 @@ export const deleteUser = async (req,res)=>{
     try{
         const deleteUser = await userModel.findByIdAndDelete(req.params.userId);
         if(!deleteUser){
-            return res.status(401).json({
+            return res.status(401).json ({
                 message:"No user with this id exist"
             })
         }
-        res.status(200).json({
+        return res.status(200).json({
             message:"user is Deleted"
         })
     } catch(error){
         console.log("Error while Deleting the user");
         return res.status(400).json({
             message:"Error while Deleting the user"
+        })
+    }
+}
+
+export const updateUser = async (req,res)=>{
+    try{
+        const userId = req.params.userId;
+        const updateUser = await userModel.findByIdAndUpdate(userId, req.body);
+        if(!updateUser){
+            return res.status(404).json({
+                message:"No user with this id is exists"
+            })
+        }
+        return res.status(200).json({
+            message:"user data is Updated"
+        })
+    } catch(error){
+        console.log("Error while updating the user",error);
+        return res.status(400).json({
+            message:"Error while updating the user"
         })
     }
 }

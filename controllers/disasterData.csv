@@ -1,0 +1,14 @@
+Disaster_Group,Disaster_Subgroup,DisasterType,Location,Start_Year,End_Year,Total_Deaths,Total_Affected
+Natural,Hydrological,Flood,"Itanagar distrci (Arunchal Pradesh); Dima Hasao, Cachar, Udalguri District (Assam); East Khasi Hills, Ri-Bhoi Districts (Meghalaya); Nagaland; Bihar; Himachal Pradesh; Madhya Pradesh; Gujarat; Maharasthra ",2022,2022,2035,1301260
+Natural,Hydrological,Flood,"Assam, Bihar, Gujarat, Chhattisgarh, Kerala, Karnataka, Madhya Pradesh, Odisha, Uttar Pradesh, West Bengal, Arunachal Pradesh, Maharashtraa.",2020,2020,1922,1300000
+Natural,Hydrological,Flood,"Sitamarhi, Sheohar, East Champaran, Muzaffarpur, Madhubani, Darbhanga, Supaul, Araria, Sahersa , Katihar, Purnia, Kishanganj districts (Bihar); Dhemaji, Lakhimpur, Biswanath, Barpeta, Chirang, Golaghat Jorhat, Sonitpur, Darrang, Nalbari, Bongaigaon, Morigaon, Nagaon, Majuli, Baksa, Kokrajhar, Dhubri, South Salmara, Goalpara, Kamrup, Hojai, Sivsagar, Tinsukia, Cachar, KarbiAnglrng, West Karbi-Anglong, Hailakandi, Dibrugarh districts (Assam); Maharashtra, Kerala, Rajasthan, West Bengal, Karnataka, Uttarakand, Himachal Pradesh, Punjab, Uttar Pradesh, Odisha",2019,2019,1900,3000000
+Natural,Hydrological,Flood,"Himachal Pradesh, Uttarakhand, Delhi, Bihar, Madyah Pradesh, Maharashtra, Chhattisgarh, Gujarat, Punjab, Karnataka, Assam",2023,2023,1529,10250000
+Natural,Hydrological,Flood,"Pune, Raigada, Satara and Ratnagiri (Maharasthra); Goa, Karnataka, Jharkhand, Bengale, Himachal Pradesh, Uttarakand states",2021,2021,1282,375000
+Technological,Transport,Rail,Near Balasore (Odisha state) ,2023,2023,288,1175
+Natural,Climatological,Glacial lake outburst flood,Uttarakhand state,2021,2021,234,
+Natural,Meteorological,Storm,"Kerala, Karnataka, Goa, Maharashtra, Gujarat, Rajasthan, Delhi, Haryana, Uttar Pradesh and Uttarakhand",2021,2021,198,700153
+Natural,Meteorological,Extreme temperature,"Uttar Pradesh, Bihar, Tripura, Odisha ",2023,2023,179,460
+Natural,Climatological,Glacial lake outburst flood,"Sikkim state Gangtok, Mangan and Pakyong (Bengal state)",2023,2023,178,88400
+Natural,Hydrological,Flood,"Hyderabad, Telangana, Andhra Pradesh, Karnataka, South Odisha states ",2020,2020,152,150000
+Technological,Miscellaneous accident,Collapse (Miscellaneous),Morbi,2022,2022,137,15
+Natural,Biological,Epidemic,"Muzaffarpur, Vaishali, Sheohar, East Champaran districts (Bihar)",2019,2019,121,418

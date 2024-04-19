@@ -34,14 +34,10 @@ export const userSchema = mongoose.Schema({
         type:String,
         default:"https://t4.ftcdn.net/jpg/01/17/00/39/360_F_117003938_TrPAYiOgFFLnIwKsjUjtqoe4W2RDzytI.jpg"
     },
-    currCart:{
-        type:Number,
-        default:true
-    },
     cart:[{
         product:{
             type:mongoose.Schema.Types.ObjectId,
-            ref:'producthack'
+            ref:'producthacks'
         },
         quantity:{
             type:Number,
@@ -51,25 +47,11 @@ export const userSchema = mongoose.Schema({
             type:String, // success , pending , completed
         }
     }],
-    prevOrder:[{
-        product:{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'producthack'
-        },
-        quantity:{
-            type:Number,
-            default:0
-        },
-        total:{
-            type:Number,
-            default:0
-        }
-    }],
     totalDonation:{
         type:Number,
         default:true
     }
 })
 
-const userModel = mongoose.model('userHack',userSchema);
+const userModel = mongoose.model('userhacks',userSchema);
 export default userModel;
